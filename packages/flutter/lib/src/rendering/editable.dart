@@ -1329,7 +1329,7 @@ class RenderEditable extends RenderBox with RelayoutWhenSystemFontsChangeMixin, 
       }
     }
     config
-      ..attributedValue = _cachedAttributedValue!
+      ..attributedValue = _cachedAttributedValue
       ..isObscured = obscureText
       ..isMultiline = _isMultiline
       ..textDirection = textDirection
@@ -1461,7 +1461,7 @@ class RenderEditable extends RenderBox with RelayoutWhenSystemFontsChangeMixin, 
         }
         late final SemanticsNode newChild;
         if (_cachedChildNodes?.isNotEmpty ?? false) {
-          newChild = _cachedChildNodes!.remove(_cachedChildNodes!.keys.first)!;
+          newChild = _cachedChildNodes!.remove(_cachedChildNodes!.keys.first);
         } else {
           final UniqueKey key = UniqueKey();
           newChild = SemanticsNode(
@@ -1482,7 +1482,7 @@ class RenderEditable extends RenderBox with RelayoutWhenSystemFontsChangeMixin, 
 
   VoidCallback? _createShowOnScreenFor(Key key) {
     return () {
-      final SemanticsNode node = _cachedChildNodes![key]!;
+      final SemanticsNode node = _cachedChildNodes![key];
       showOnScreen(descendant: this, rect: node.rect);
     };
   }
@@ -2019,7 +2019,7 @@ class RenderEditable extends RenderBox with RelayoutWhenSystemFontsChangeMixin, 
   /// programmatically manipulate its `value` or `selection` directly.
   /// {@endtemplate}
   void selectPosition({ required SelectionChangedCause cause }) {
-    selectPositionAt(from: _lastTapDownPosition!, cause: cause);
+    selectPositionAt(from: _lastTapDownPosition, cause: cause);
   }
 
   /// Select text between the global positions [from] and [to].
@@ -2052,7 +2052,7 @@ class RenderEditable extends RenderBox with RelayoutWhenSystemFontsChangeMixin, 
   ///
   /// {@macro flutter.rendering.RenderEditable.selectPosition}
   void selectWord({ required SelectionChangedCause cause }) {
-    selectWordsInRange(from: _lastTapDownPosition!, cause: cause);
+    selectWordsInRange(from: _lastTapDownPosition, cause: cause);
   }
 
   /// Selects the set words of a paragraph that intersect a given range of global positions.

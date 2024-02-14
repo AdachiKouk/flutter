@@ -1707,7 +1707,7 @@ class _WidgetsAppState extends State<WidgetsApp> with WidgetsBindingObserver {
 
     if (widget.textStyle != null) {
       result = DefaultTextStyle(
-        style: widget.textStyle!,
+        style: widget.textStyle,
         child: result,
       );
     }
@@ -1780,7 +1780,7 @@ class _WidgetsAppState extends State<WidgetsApp> with WidgetsBindingObserver {
     }
 
     final Locale appLocale = widget.locale != null
-      ? _resolveLocales(<Locale>[widget.locale!], widget.supportedLocales)
+      ? _resolveLocales(<Locale>[widget.locale], widget.supportedLocales)
       : _locale!;
 
     assert(_debugCheckLocalizations(appLocale));

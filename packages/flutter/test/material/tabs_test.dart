@@ -1340,13 +1340,13 @@ void main() {
           tabs: <Widget>[
             Builder(
               builder: (BuildContext context) {
-                firstColor = IconTheme.of(context).color!;
+                firstColor = IconTheme.of(context).color;
                 return const Text('First');
               },
             ),
             Builder(
               builder: (BuildContext context) {
-                secondColor = IconTheme.of(context).color!;
+                secondColor = IconTheme.of(context).color;
                 return const Text('Second');
               },
             ),
@@ -3182,7 +3182,7 @@ void main() {
     );
 
     final RenderBox tabBarBox = tester.firstRenderObject<RenderBox>(find.byType(TabBar));
-    final double tabBarHeight = 40.0 + indicatorWeight + padding.top + padding.bottom;  // 40 = max tab height
+    const double tabBarHeight = 40.0 + indicatorWeight + padding.top + padding.bottom;  // 40 = max tab height
     expect(tabBarBox.size.height, tabBarHeight);
 
     final double tabSize = (tabBarBox.size.width - padding.horizontal) / 2.0;
@@ -3240,7 +3240,7 @@ void main() {
     );
 
     final RenderBox tabBarBox = tester.firstRenderObject<RenderBox>(find.byType(TabBar));
-    final double tabBarHeight = 50.0 + indicatorWeight + padding.top + padding.bottom;  // 50 = max tab height
+    const double tabBarHeight = 50.0 + indicatorWeight + padding.top + padding.bottom;  // 50 = max tab height
     expect(tabBarBox.size.height, tabBarHeight);
 
     // Tab0 width = 130, height = 30
@@ -3332,8 +3332,8 @@ void main() {
     expect(tester.getRect(find.byKey(tabs[2].key!)), tabRect);
 
     // Tab 0 selected, indicatorPadding == labelPadding
-    final double indicatorLeft = indicatorPadding.left + indicatorWeight / 2.0;
-    final double indicatorRight = 130.0 + labelPadding.horizontal - indicatorPadding.right - indicatorWeight / 2.0;
+    const double indicatorLeft = indicatorPadding.left + indicatorWeight / 2.0;
+    const double indicatorRight = 130.0 + labelPadding.horizontal - indicatorPadding.right - indicatorWeight / 2.0;
     final double indicatorY = tabBottom + indicatorWeight / 2.0;
     expect(tabBarBox, paints..line(
       strokeWidth: indicatorWeight,
@@ -3404,8 +3404,8 @@ void main() {
     expect(tester.getRect(find.byKey(tabs[2].key!)), tabRect);
 
     // Tab 0 selected
-    final double indicatorLeft = indicatorPadding.left + labelPadding.left + indicatorWeight / 2.0;
-    final double indicatorRight = labelPadding.left + 130.0 - indicatorPadding.right - indicatorWeight / 2.0;
+    const double indicatorLeft = indicatorPadding.left + labelPadding.left + indicatorWeight / 2.0;
+    const double indicatorRight = labelPadding.left + 130.0 - indicatorPadding.right - indicatorWeight / 2.0;
     final double indicatorY = tabBottom + indicatorWeight / 2.0;
     expect(tabBarBox, paints..line(
       strokeWidth: indicatorWeight,
@@ -4645,8 +4645,8 @@ void main() {
 
     final IconThemeData selectedTabIcon = IconTheme.of(tester.element(find.text(tab1)));
     final IconThemeData uselectedTabIcon = IconTheme.of(tester.element(find.text(tab2)));
-    final TextStyle selectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab1)).text.style!;
-    final TextStyle unselectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab2)).text.style!;
+    final TextStyle selectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab1)).text.style;
+    final TextStyle unselectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab2)).text.style;
 
     expect(selectedTabIcon.color, selectedColor);
     expect(uselectedTabIcon.color, unselectedColor);
@@ -4689,8 +4689,8 @@ void main() {
 
     IconThemeData selectedTabIcon = IconTheme.of(tester.element(find.text(tab1)));
     IconThemeData uselectedTabIcon = IconTheme.of(tester.element(find.text(tab2)));
-    TextStyle selectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab1)).text.style!;
-    TextStyle unselectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab2)).text.style!;
+    TextStyle selectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab1)).text.style;
+    TextStyle unselectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab2)).text.style;
 
     expect(selectedTabIcon.color, selectedStateColor);
     expect(uselectedTabIcon.color, unselectedStateColor);
@@ -4702,8 +4702,8 @@ void main() {
 
     selectedTabIcon = IconTheme.of(tester.element(find.text(tab1)));
     uselectedTabIcon = IconTheme.of(tester.element(find.text(tab2)));
-    selectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab1)).text.style!;
-    unselectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab2)).text.style!;
+    selectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab1)).text.style;
+    unselectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab2)).text.style;
 
     expect(selectedTabIcon.color, selectedColor);
     expect(uselectedTabIcon.color, unselectedColor);
@@ -5101,11 +5101,11 @@ void main() {
           unselectedLabelColor: Colors.black,
           tabs: <Widget>[
             Builder(builder: (BuildContext context) {
-              firstColor = DefaultTextStyle.of(context).style.color!;
+              firstColor = DefaultTextStyle.of(context).style.color;
               return const Text('First');
             }),
             Builder(builder: (BuildContext context) {
-              secondColor = DefaultTextStyle.of(context).style.color!;
+              secondColor = DefaultTextStyle.of(context).style.color;
               return const Text('Second');
             }),
           ],
@@ -6516,8 +6516,8 @@ void main() {
 
     final IconThemeData selectedTabIcon = IconTheme.of(tester.element(find.text(tab1)));
     final IconThemeData uselectedTabIcon = IconTheme.of(tester.element(find.text(tab2)));
-    final TextStyle selectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab1)).text.style!;
-    final TextStyle unselectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab2)).text.style!;
+    final TextStyle selectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab1)).text.style;
+    final TextStyle unselectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab2)).text.style;
 
     // Selected tab should use the labelStyle color.
     expect(selectedTabIcon.color, labelStyle.color);
@@ -6567,8 +6567,8 @@ void main() {
 
     IconThemeData selectedTabIcon = IconTheme.of(tester.element(find.text(tab1)));
     IconThemeData uselectedTabIcon = IconTheme.of(tester.element(find.text(tab2)));
-    TextStyle selectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab1)).text.style!;
-    TextStyle unselectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab2)).text.style!;
+    TextStyle selectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab1)).text.style;
+    TextStyle unselectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab2)).text.style;
 
     // Selected tab should use labelStyle color.
     expect(selectedTabIcon.color, labelStyle.color);
@@ -6585,8 +6585,8 @@ void main() {
 
     selectedTabIcon = IconTheme.of(tester.element(find.text(tab1)));
     uselectedTabIcon = IconTheme.of(tester.element(find.text(tab2)));
-    selectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab1)).text.style!;
-    unselectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab2)).text.style!;
+    selectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab1)).text.style;
+    unselectedTextStyle = tester.renderObject<RenderParagraph>(find.text(tab2)).text.style;
 
     // Selected tab should use the labelColor.
     expect(selectedTabIcon.color, labelColor);
@@ -6816,7 +6816,7 @@ void main() {
       );
 
       final RenderBox tabBarBox = tester.firstRenderObject<RenderBox>(find.byType(TabBar));
-      final double tabBarHeight = 50.0 + indicatorWeight + padding.top + padding.bottom;  // 50 = max tab height
+      const double tabBarHeight = 50.0 + indicatorWeight + padding.top + padding.bottom;  // 50 = max tab height
       expect(tabBarBox.size.height, tabBarHeight);
 
       // Tab0 width = 130, height = 30

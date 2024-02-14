@@ -189,7 +189,7 @@ class SemanticsController {
     final RenderView renderView = _controller.binding.renderViews.firstWhere((RenderView r) => r.flutterView == actualView);
 
     final List<SemanticsNode> traversal = <SemanticsNode>[];
-    _traverse(renderView.owner!.semanticsOwner!.rootSemanticsNode!, traversal);
+    _traverse(renderView.owner!.semanticsOwner!.rootSemanticsNode, traversal);
 
     int startIndex = 0;
     int endIndex = traversal.length - 1;
@@ -417,12 +417,12 @@ abstract class WidgetController {
   Iterable<Layer> layerListOf(FinderBase<Element> finder) {
     TestAsyncUtils.guardSync();
     final Element element = finder.evaluate().single;
-    final RenderObject object = element.renderObject!;
+    final RenderObject object = element.renderObject;
     RenderObject current = object;
     while (current.debugLayer == null) {
-      current = current.parent!;
+      current = current.parent;
     }
-    final ContainerLayer layer = current.debugLayer!;
+    final ContainerLayer layer = current.debugLayer;
     return _walkLayers(layer);
   }
 
@@ -433,7 +433,7 @@ abstract class WidgetController {
   /// using [Iterator.moveNext].
   Iterable<Element> get allElements {
     TestAsyncUtils.guardSync();
-    return collectAllElementsFrom(binding.rootElement!, skipOffstage: false);
+    return collectAllElementsFrom(binding.rootElement, skipOffstage: false);
   }
 
   /// The matching element in the widget tree.
@@ -531,7 +531,7 @@ abstract class WidgetController {
   /// their own render object.
   Iterable<RenderObject> get allRenderObjects {
     TestAsyncUtils.guardSync();
-    return allElements.map<RenderObject>((Element element) => element.renderObject!);
+    return allElements.map<RenderObject>((Element element) => element.renderObject);
   }
 
   /// The render object of the matching widget in the widget tree.
@@ -573,7 +573,7 @@ abstract class WidgetController {
   List<Layer> get layers {
     return <Layer>[
       for (final RenderView renderView in binding.renderViews)
-        ..._walkLayers(renderView.debugLayer!)
+        ..._walkLayers(renderView.debugLayer)
     ];
   }
   Iterable<Layer> _walkLayers(Layer layer) sync* {
