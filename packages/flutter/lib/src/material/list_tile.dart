@@ -1359,7 +1359,7 @@ class _RenderListTile extends RenderBox with SlottedContainerRenderObjectMixin<_
       titleY = (tileHeight - titleSize.height) / 2.0;
     } else {
       assert(subtitleBaselineType != null);
-      titleY = titleBaseline! - _boxBaseline(title, titleBaselineType)!;
+      titleY = titleBaseline! - _boxBaseline(label, titleBaselineType)!;
       subtitleY = subtitleBaseline! - _boxBaseline(subtitle, subtitleBaselineType)! + visualDensity.vertical * 2.0;
       tileHeight = defaultTileHeight;
 
@@ -1438,7 +1438,7 @@ class _RenderListTile extends RenderBox with SlottedContainerRenderObjectMixin<_
         if (hasLeading) {
           _positionBox(leading, Offset(tileWidth - leadingSize.width, leadingY));
         }
-        _positionBox(title, Offset(adjustedTrailingWidth, titleY));
+        _positionBox(label, Offset(adjustedTrailingWidth, titleY));
         if (hasSubtitle) {
           _positionBox(subtitle, Offset(adjustedTrailingWidth, subtitleY!));
         }
@@ -1451,7 +1451,7 @@ class _RenderListTile extends RenderBox with SlottedContainerRenderObjectMixin<_
         if (hasLeading) {
           _positionBox(leading, Offset(0.0, leadingY));
         }
-        _positionBox(title, Offset(titleStart, titleY));
+        _positionBox(label, Offset(titleStart, titleY));
         if (hasSubtitle) {
           _positionBox(subtitle, Offset(titleStart, subtitleY!));
         }

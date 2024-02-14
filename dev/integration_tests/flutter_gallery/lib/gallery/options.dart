@@ -184,7 +184,7 @@ class _TextButton extends StatelessWidget {
         padding: EdgeInsets.zero,
       ),
       onPressed: onPressed,
-      child: child!,
+      child: child,
     );
   }
 }

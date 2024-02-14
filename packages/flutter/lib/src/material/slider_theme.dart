@@ -3190,7 +3190,7 @@ class _PaddleSliderValueIndicatorPathPainter {
     assert(!_debuggingLabelLocation || () {
       const Offset leftCenter = _topLobeCenter - Offset(leftWidthNeeded, 0.0) + neckStretch;
       const Offset rightCenter = _topLobeCenter + Offset(rightWidthNeeded, 0.0) + neckStretch;
-      final Rect valueRect = Rect.fromLTRB(
+      const Rect valueRect = Rect.fromLTRB(
         leftCenter.dx - _topLobeRadius,
         leftCenter.dy - _topLobeRadius,
         rightCenter.dx + _topLobeRadius,
